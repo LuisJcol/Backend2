@@ -44,14 +44,38 @@ class usuariosController{
         </script>");
     }
 
+    // Consulta para obtener la informacion de un usuario a traves del id de usuario
+    public function getUsuario(){
+        $users = new usuarios();
+        $idusuario = $_REQUEST["ID"];
+        $data['usuarios'] = $users->getUserById($idusuario);
+        print(json_encode($data['usuarios']));
+
+    }
+
+    // Consulta para editar la informacion de un usuario a traves del id de usuario
+    public function editar(){
+        $users = new usuarios();
+        $idusuario = $_REQUEST["ID"];
+        extract($_POST);
+        $users->modifyUsers($idusuario, $idpersona, $idrol, $password);
+    }
+
+    // Consulta para eliminar usuario
+
+    public function eliminar(){
+        $users = new usuarios();
+        $idusuario = $_REQUEST["ID"];
+        extract($_POST);
+        $users->deactiveUser($idusuario);
+        echo json_encode("Usuario Eliminado");
+    }
+
     // Consulta para guardar un usuario nuevo
     public function guardar(){
-
-        
             extract($_POST);
             $user = new usuarios();
             $user->registerUsers($usuario,$idpersona, $idrol, $password);
-            echo json_encode($_POST['usuario']);
             echo json_encode("Prueba");
             require_once "views/usuarios/index.php";
       
@@ -66,6 +90,7 @@ class usuariosController{
         print(json_encode($data['usuario']));
 
     }
+
 }
 
 

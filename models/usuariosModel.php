@@ -30,6 +30,48 @@ class usuarios extends personas{
         }
     }
 
+    public function getUserById($idusuario){
+    
+        $sql = $this->conexion->connect->prepare("SELECT p.primerNombre, p.segundoNombre, p.primerApellido, p.segundoApellido, u.*, r.rol FROM usuario u JOIN persona p  ON p.id = u.id_persona JOIN roles r ON r.id_rol = u.id_rol WHERE u.id_usuario = :idusuario;");
+        $sql->bindParam(':idusuario',$idusuario);
+        $sql->execute();
+        if ($sql->errorCode() == 0) {
+            $this->users= $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $this->users;
+        }else{
+            print_r($sql->errorInfo());
+        }
+    }
+
+    public function modifyUsers($idusuario, $idpersona, $idrol, $password){
+        $sql = $this->conexion->connect->prepare("UPDATE usuario SET id_persona = :idpersona, id_rol = :idrol, contrasena = :pw WHERE id_usuario = :idusuario");
+        $sql->bindParam(':idusuario', $idusuario);
+        $sql->bindParam(':idpersona',$idpersona);
+        $sql->bindParam(':idrol',$idrol);
+        $sql->bindParam(':pw',$password);
+        $sql->execute();
+        if ($sql->errorCode() == 0) {
+            $this->users= $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $this->users;
+        }else{
+            print_r($sql->errorInfo());
+        }
+    }
+
+    public function deactiveUser($idusuario){
+        $sql = $this->conexion->connect->prepare("UPDATE usuario SET estado_usuario = :estatus WHERE id_usuario = :idusuario");
+        $estado = "I";
+        $sql->bindParam(':idusuario',$idusuario);
+        $sql->bindValue(':estatus',$estado);
+        $sql-execute();
+        if ($sql->errorCode() == 0) {
+            $this->users= $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $this->users;
+        }else{
+            print_r($sql->errorInfo());
+        }
+    }
+
 
     public function getActiveUsers(){
         $sql = $this->conexion->connect->prepare("SELECT p.*, u.*, r.rol FROM persona p JOIN usuario u ON u.id_persona = p.id JOIN roles r ON r.id_rol = u.id_rol WHERE u.estado_usuario = 'A';");
