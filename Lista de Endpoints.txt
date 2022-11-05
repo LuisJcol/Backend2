@@ -1,0 +1,130 @@
+Lista de End-Points Backend
+
+Metodo	End-Point
+
+// Consulta para obtener el listado de periodos
+GET 		localhost/Backend2/index.php?c=periodos&a=verPeriodo
+
+
+// Consulta para obtener el listado de personas
+GET 		localhost/Backend2/index.php?c=personas&a=ver
+
+
+// Consulta para obtener el listado de roles
+GET		localhost/Backend2/index.php?c=roles&a=ver
+
+
+// Consulta para obtener la informacion de un usuario teniendo como parametros el usuario y contrasena
+POST 		localhost/Backend2/index.php?c=usuarios&a=Login
+
+
+// Consulta para obtener el listado de todos los usuarios registrados
+GET 		localhost/Backend2/index.php?c=usuarios&a=ver
+
+
+// Consulta para obtener listado de roles y personas sin usuario creado
+GET 		localhost/Backend2/index.php?c=usuarios&a=registrar
+
+
+// Consulta para obtener la informacion de un usuario a traves del id de usuario
+GET 		localhost/Backend2/index.php?c=usuarios&a=getUsuario
+
+
+// Consulta para editar la informacion de un usuario a traves del id de usuario
+POST 		localhost/Backend2/index.php?c=usuarios&a=editar
+
+
+// Consulta para eliminar usuario
+POST 		localhost/Backend2/index.php?c=usuarios&a=eliminar
+
+
+// Consulta para guardar un usuario nuevo
+POST 		localhost/Backend2/index.php?c=usuarios&a=guardar
+
+
+// Consulta para obtener usuarios registrados en estado activo
+GET 		localhost/Backend2/index.php?c=usuarios&a=verActivos
+
+
+// Consulta para obtener el listado de escuelas con parametro el id de la facultad
+GET 		localhost/Backend2/index.php?c=escuelas&a=verEscuelas
+
+
+// Consulta para obtener el listado de facultades
+GET 		localhost/Backend2/index.php?c=escuelas&a=verFacultades
+
+
+// Consulta para obtener el listado estudiantes inscritos por facultades
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verInscripcionesFacultad
+
+
+// Consulta para obtener el listado estudiantes inscritos por escuelas
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verInscripcionesEscuela
+
+
+// Consulta para obtener el listado estudiantes inscritos por escuelas
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verInscripcionesEscuela
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ingenieria Informatica
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesInformatica
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ingenieria Industrial
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesIndustrial
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ingenieria Computacion
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verInscripcionesEscuela
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ingenieria Electronica: Mencion Telecomunicaciones
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesTelecomunicaciones
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ingenieria Electronica: Mencion Automatizacion y Control
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesAutomatizacion
+
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Comunicacion Social: Mencion Audiovisual
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesAudiovisual
+
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Comunicacion Social: Mencion Periodismo
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesPeriodismo
+
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Comunicacion Social: Mencion Relaciones Publicas
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesRelacionesPublicas
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ciencias Administrativas: Mencion Contaduria
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesContaduria
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ciencias Administrativas: Mencion Administracion de Empresas
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesAdmEmpresas
+
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ciencias Administrativas: Mencion Mercadeo
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesMercadeo
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ciencias Administrativas: Mencion Banca y Seguros
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesBancaSeguros
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ciencias Administrativas: Mencion Relaciones Industriales
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesRelacionesIndustriales
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ciencias Juridicas y Politicas: Derecho
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesDerecho
+
+
+// Consulta para obtener el registro de estudiantes inscritos en Ciencias de la Informatica: Diseño Grafico
+GET 		localhost/Backend2/index.php?c=inscripciones&a=verEstudiantesDiseno
