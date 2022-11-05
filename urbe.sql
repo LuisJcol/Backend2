@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 22, 2022 at 05:54 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 05-11-2022 a las 05:15:41
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `urbe`
+-- Base de datos: `urbe`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ciudad`
+-- Estructura de tabla para la tabla `ciudad`
 --
 
 CREATE TABLE `ciudad` (
@@ -33,7 +33,7 @@ CREATE TABLE `ciudad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `ciudad`
+-- Volcado de datos para la tabla `ciudad`
 --
 
 INSERT INTO `ciudad` (`id_ciudad`, `ciudad`) VALUES
@@ -62,7 +62,7 @@ INSERT INTO `ciudad` (`id_ciudad`, `ciudad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contenido_programatico`
+-- Estructura de tabla para la tabla `contenido_programatico`
 --
 
 CREATE TABLE `contenido_programatico` (
@@ -77,7 +77,7 @@ CREATE TABLE `contenido_programatico` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `contenido_programatico`
+-- Volcado de datos para la tabla `contenido_programatico`
 --
 
 INSERT INTO `contenido_programatico` (`id_contenido`, `id_tipo_estudio`, `codigo_materia`, `contenido_programatico`, `cantidad_uc`, `id_usuario`, `total_horas_sem`, `total_horas_cont`) VALUES
@@ -142,12 +142,26 @@ INSERT INTO `contenido_programatico` (`id_contenido`, `id_tipo_estudio`, `codigo
 (59, 1, 'N0000052', 'ETICA Y DEONTOLOGIA', 3, 1, 4, 56),
 (60, 1, 'N0000053', 'ADMINISTRACION DE CENTROS DE INFORMATICA', 4, 1, 4, 56),
 (61, 1, 'N0000049', 'PASANTIAS ACADEMICAS', 10, 1, 0, 0),
-(62, 1, 'N0000050', 'SEMINARIO DE INVESTIGACION III', 9, 1, 5, 70);
+(62, 1, 'N0000050', 'SEMINARIO DE INVESTIGACION III', 9, 1, 5, 70),
+(63, 1, 'S00001', 'INTRODUCCION A LA COMUNICACION SOCIAL', 3, 1, 4, 56),
+(64, 1, 'S00002', 'ACTIVIDAD FISICA Y SALUD', 3, 1, 3, 42),
+(65, 1, 'S00003', 'CIENCIA, HOMBRE Y CULTURA', 3, 1, 3, 42),
+(66, 1, 'S00004', 'LENGUAJE Y HABILIDADES COGNITIVAS', 3, 1, 3, 42),
+(67, 1, 'S00005', 'METODOLOGIA DE LA INVESTIGACION', 3, 1, 3, 42),
+(68, 1, 'S00006', 'ORIENTACION', 3, 1, 3, 42),
+(69, 1, 'S00007', 'INFORMATICA I', 3, 1, 5, 70),
+(70, 1, 'S00008', 'INFORMATICA II', 3, 1, 4, 56),
+(71, 1, 'S00009', 'PERIODISMO Y LITERATURA', 3, 1, 4, 56),
+(72, 1, 'S00010', 'LENGUAJE Y COMUNICACION', 3, 1, 4, 56),
+(73, 1, 'S00011', 'TEORIA DE LA COMUNICACION', 3, 1, 4, 56),
+(74, 1, 'S00012', 'ACTIVIDADES RECREACIONALES', 3, 1, 3, 42),
+(75, 1, 'S00013', 'LOGICA', 3, 1, 3, 42),
+(76, 1, 'S00014', 'INGLES I', 3, 1, 3, 42);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `escuela`
+-- Estructura de tabla para la tabla `escuela`
 --
 
 CREATE TABLE `escuela` (
@@ -157,7 +171,7 @@ CREATE TABLE `escuela` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `escuela`
+-- Volcado de datos para la tabla `escuela`
 --
 
 INSERT INTO `escuela` (`id_escuela`, `escuela`, `id_facultad`) VALUES
@@ -180,7 +194,7 @@ INSERT INTO `escuela` (`id_escuela`, `escuela`, `id_facultad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `facultad`
+-- Estructura de tabla para la tabla `facultad`
 --
 
 CREATE TABLE `facultad` (
@@ -189,7 +203,7 @@ CREATE TABLE `facultad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `facultad`
+-- Volcado de datos para la tabla `facultad`
 --
 
 INSERT INTO `facultad` (`id_facultad`, `facultad`) VALUES
@@ -202,27 +216,44 @@ INSERT INTO `facultad` (`id_facultad`, `facultad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inscripcion`
+-- Estructura de tabla para la tabla `inscripcion`
 --
 
 CREATE TABLE `inscripcion` (
   `id_inscripcion` int(10) UNSIGNED NOT NULL,
   `id_tipo_estudio` int(11) NOT NULL,
+  `id_facultad` int(11) NOT NULL,
+  `id_escuela` int(11) NOT NULL,
   `id_persona` int(11) NOT NULL,
   `id_periodo` int(11) NOT NULL,
-  `fecha_insc_estudio` datetime NOT NULL,
-  `promedio_academico` int(11) NOT NULL,
-  `promedio_aritmetico` int(11) NOT NULL,
-  `uc_aprobadas` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `numero_semestre` int(11) NOT NULL,
-  `turno` int(11) NOT NULL
+  `fecha_insc_estudio` datetime DEFAULT NULL,
+  `promedio_academico` int(11) DEFAULT NULL,
+  `promedio_aritmetico` int(11) DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `inscripcion`
+--
+
+INSERT INTO `inscripcion` (`id_inscripcion`, `id_tipo_estudio`, `id_facultad`, `id_escuela`, `id_persona`, `id_periodo`, `fecha_insc_estudio`, `promedio_academico`, `promedio_aritmetico`, `id_usuario`) VALUES
+(1, 1, 1, 1, 1, 4, NULL, NULL, NULL, 1),
+(2, 1, 1, 2, 18, 4, NULL, NULL, NULL, 1),
+(3, 1, 5, 15, 13, 4, NULL, NULL, NULL, 1),
+(4, 1, 4, 14, 10, 4, NULL, NULL, NULL, 1),
+(5, 1, 2, 7, 19, 4, NULL, NULL, NULL, 1),
+(6, 1, 1, 1, 5, 4, NULL, NULL, NULL, 1),
+(7, 1, 1, 1, 1, 5, NULL, NULL, NULL, 1),
+(8, 1, 1, 1, 4, 5, NULL, NULL, NULL, 1),
+(9, 1, 1, 1, 1, 6, NULL, NULL, NULL, 1),
+(10, 1, 1, 1, 1, 7, NULL, NULL, NULL, 1),
+(11, 1, 1, 1, 1, 8, NULL, NULL, NULL, 1),
+(12, 1, 1, 1, 1, 9, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inscripcion_seccion`
+-- Estructura de tabla para la tabla `inscripcion_seccion`
 --
 
 CREATE TABLE `inscripcion_seccion` (
@@ -235,7 +266,7 @@ CREATE TABLE `inscripcion_seccion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `inscripcion_seccion`
+-- Volcado de datos para la tabla `inscripcion_seccion`
 --
 
 INSERT INTO `inscripcion_seccion` (`id_insc_secc`, `id_contenido`, `id_planilla`, `id_seccion`, `seccion`, `id_usuario`) VALUES
@@ -249,7 +280,7 @@ INSERT INTO `inscripcion_seccion` (`id_insc_secc`, `id_contenido`, `id_planilla`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modo_estudio`
+-- Estructura de tabla para la tabla `modo_estudio`
 --
 
 CREATE TABLE `modo_estudio` (
@@ -258,7 +289,7 @@ CREATE TABLE `modo_estudio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `modo_estudio`
+-- Volcado de datos para la tabla `modo_estudio`
 --
 
 INSERT INTO `modo_estudio` (`id_modo`, `modo_estudio`) VALUES
@@ -269,7 +300,7 @@ INSERT INTO `modo_estudio` (`id_modo`, `modo_estudio`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `periodo`
+-- Estructura de tabla para la tabla `periodo`
 --
 
 CREATE TABLE `periodo` (
@@ -284,7 +315,7 @@ CREATE TABLE `periodo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `periodo`
+-- Volcado de datos para la tabla `periodo`
 --
 
 INSERT INTO `periodo` (`id_periodo`, `periodo`, `fecha_inicio`, `fecha_fin`, `id_usuario`, `id_tipo_estudio`, `abreviatura_periodo`, `estado_periodo`) VALUES
@@ -310,7 +341,7 @@ INSERT INTO `periodo` (`id_periodo`, `periodo`, `fecha_inicio`, `fecha_fin`, `id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permisos`
+-- Estructura de tabla para la tabla `permisos`
 --
 
 CREATE TABLE `permisos` (
@@ -326,7 +357,7 @@ CREATE TABLE `permisos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `persona`
+-- Estructura de tabla para la tabla `persona`
 --
 
 CREATE TABLE `persona` (
@@ -353,7 +384,7 @@ CREATE TABLE `persona` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `persona`
+-- Volcado de datos para la tabla `persona`
 --
 
 INSERT INTO `persona` (`id`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `id_ciudad`, `tipo_identificacion`, `identificacion`, `telefono_habitacion`, `telefono_movil`, `fecha_nacimiento`, `estado_civil`, `sexo`, `correo_primario`, `correo_secundario`, `direccion`, `fecha_registro`, `edad`, `peso`, `estatura`) VALUES
@@ -372,12 +403,21 @@ INSERT INTO `persona` (`id`, `primerNombre`, `segundoNombre`, `primerApellido`, 
 (16, 'YULIMAR', 'ANDREINA', 'RUBIO', 'BALZAN', 17, 'V', '25916333', NULL, NULL, '2022-09-07 06:34:12', 'S', 'F', 'yulimarrub@gmail.com', NULL, NULL, '2022-09-07 06:34:12', 24, '61.00', '1.64'),
 (17, 'CARLOS', 'IGNACIO', 'PEROZO', '', 14, 'V', '26212946', NULL, NULL, '2022-09-07 06:34:12', 'S', 'M', '', NULL, NULL, '2022-09-07 06:34:12', 25, '82.00', '1.73'),
 (18, 'ANDREA', 'PAOLA', 'AMUTIO', 'MATUTE', 14, 'V', '24619782', NULL, NULL, '2022-09-07 06:34:12', 'C', 'F', 'andreapaola@gmail.com', NULL, NULL, '2022-09-07 06:34:12', 26, '65.50', '1.67'),
-(19, 'JUAN', 'MANUEL', 'GONZALEZ', 'GARCIA', 14, 'V', '26356669', NULL, NULL, '2022-09-07 06:41:43', 'S', 'M', 'juanma@outlook.es', NULL, NULL, '2022-09-07 06:41:43', 24, NULL, NULL);
+(19, 'JUAN', 'MANUEL', 'GONZALEZ', 'GARCIA', 14, 'V', '26356669', NULL, NULL, '2022-09-07 06:41:43', 'S', 'M', 'juanma@outlook.es', NULL, NULL, '2022-09-07 06:41:43', 24, NULL, NULL),
+(20, 'ZHI', 'WEI', 'ZHAO', 'LIN', 14, 'V', '25696432', NULL, NULL, '1997-11-05 04:26:16', 'S', 'M', 'albertozhao@gmail.com', NULL, NULL, '2022-11-05 04:26:16', 25, NULL, NULL),
+(21, 'JOXEMI', 'CRISTINA', 'LEON', 'URDANETA', 13, 'V', '23462784', NULL, NULL, '1995-11-05 04:28:35', 'S', 'F', 'joxemi.cris@hotmail.com', NULL, NULL, '2022-11-05 04:28:35', 27, NULL, NULL),
+(22, 'SARA', 'SOFIA', 'VILLEGAS', 'VILLALOBOS', 2, 'V', '26945812', NULL, NULL, '2000-12-05 04:28:35', 'S', 'F', 'sara_sofia123@gmail.com', NULL, NULL, '1996-07-05 04:28:35', 26, NULL, NULL),
+(23, 'SOFIA', 'ANDREINA', 'VIELMA', 'CARRASCO', 3, 'V', '24693562', NULL, NULL, '1994-03-12 04:28:35', 'C', 'F', 'sofiviel@gmail.com', NULL, NULL, '2022-11-05 04:28:35', 28, NULL, NULL),
+(24, 'LUIS', 'FERNANDO', 'RODRIGUEZ', 'RODRIGUEZ', 3, 'V', '25414753', NULL, NULL, '1998-10-26 04:28:35', 'S', 'M', 'luisfer99@gmail.com', NULL, NULL, '2022-11-05 04:28:35', 25, NULL, NULL),
+(25, 'CARLOS', 'JOSE', 'GUILLEN', 'GALLEGOS', 10, 'V', '23265741', NULL, NULL, '1996-12-30 04:28:35', 'S', 'M', 'cjguillen@gmail.com', NULL, NULL, '2022-11-05 04:28:35', 26, NULL, NULL),
+(26, 'MARIA', 'VALERIA', 'GALLEGOS', 'GALLEGOS', 14, 'V', '29468123', NULL, NULL, '2003-04-14 04:28:35', 'S', 'F', 'mavaleria145@gmail.com', NULL, NULL, '2022-11-05 04:28:35', 19, NULL, NULL),
+(27, 'JOSE', 'JAVIER', 'SEMPRUM', 'HENRIQUEZ', 8, 'V', '27853643', NULL, NULL, '2000-10-09 04:28:35', 'S', 'M', 'josejsemp@outloook.es', NULL, NULL, '2022-11-05 04:28:35', 22, NULL, NULL),
+(28, 'AMANDA', 'MARIA', 'FERNANDEZ', 'CARRILLO', 1, 'V', '26111345', NULL, NULL, '2000-11-05 04:28:35', '', '', 'amaria@gmail.com', NULL, NULL, '2022-11-05 04:28:35', 22, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `planilla_inscripcion`
+-- Estructura de tabla para la tabla `planilla_inscripcion`
 --
 
 CREATE TABLE `planilla_inscripcion` (
@@ -398,7 +438,7 @@ CREATE TABLE `planilla_inscripcion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `planilla_inscripcion`
+-- Volcado de datos para la tabla `planilla_inscripcion`
 --
 
 INSERT INTO `planilla_inscripcion` (`id_planilla`, `id_tipo_estudio`, `id_periodo`, `id_persona`, `id_facultad`, `id_escuela`, `fecha_planilla`, `estado_planilla`, `total_uc`, `id_usuario`, `id_beca`, `turno`, `id_factura`, `numero_semestre`) VALUES
@@ -407,7 +447,7 @@ INSERT INTO `planilla_inscripcion` (`id_planilla`, `id_tipo_estudio`, `id_period
 -- --------------------------------------------------------
 
 --
--- Table structure for table `registro_academico`
+-- Estructura de tabla para la tabla `registro_academico`
 --
 
 CREATE TABLE `registro_academico` (
@@ -424,7 +464,7 @@ CREATE TABLE `registro_academico` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Estructura de tabla para la tabla `roles`
 --
 
 CREATE TABLE `roles` (
@@ -433,7 +473,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `roles`
+-- Volcado de datos para la tabla `roles`
 --
 
 INSERT INTO `roles` (`id_rol`, `rol`) VALUES
@@ -444,7 +484,7 @@ INSERT INTO `roles` (`id_rol`, `rol`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seccion`
+-- Estructura de tabla para la tabla `seccion`
 --
 
 CREATE TABLE `seccion` (
@@ -467,7 +507,7 @@ CREATE TABLE `seccion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `seccion`
+-- Volcado de datos para la tabla `seccion`
 --
 
 INSERT INTO `seccion` (`id_seccion`, `id_periodo`, `id_persona`, `id_contenido`, `id_tipo_estudio`, `id_modo`, `seccion`, `capacidad`, `inscritos`, `porcentaje_nota`, `fecha_inicio`, `fecha_fin`, `turno`, `estado_seccion`, `id_usuario`, `capacidad_maxima`) VALUES
@@ -491,7 +531,7 @@ INSERT INTO `seccion` (`id_seccion`, `id_periodo`, `id_persona`, `id_contenido`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_estudio`
+-- Estructura de tabla para la tabla `tipo_estudio`
 --
 
 CREATE TABLE `tipo_estudio` (
@@ -500,7 +540,7 @@ CREATE TABLE `tipo_estudio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `tipo_estudio`
+-- Volcado de datos para la tabla `tipo_estudio`
 --
 
 INSERT INTO `tipo_estudio` (`id_tipo_estudio`, `tipo_estudio`) VALUES
@@ -511,7 +551,7 @@ INSERT INTO `tipo_estudio` (`id_tipo_estudio`, `tipo_estudio`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -527,55 +567,58 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`id_usuario`, `usuario`, `id_persona`, `estado_usuario`, `ultima_fecha_inact`, `ultimo_acceso`, `correo_electronico`, `id_rol`, `contrasena`) VALUES
-(4, 'luiscolmenarez', 1, 'A', NULL, NULL, 'luiscolmenarez76@gmail.com', 1, 'luis123'),
+(4, 'luiscolmenarez', 4, 'A', NULL, NULL, 'luiscolmenarez76@gmail.com', 1, 'luis1234'),
 (5, 'yjpp', 3, 'A', NULL, NULL, 'yjpp@gmail.com', 3, 'yjpp12345'),
 (6, 'jmedina', 2, 'I', NULL, NULL, 'juan.medina@urbe.edu', 1, 'urbe2021'),
-(10, 'esoto', 10, 'A', NULL, NULL, NULL, 3, 'asd');
+(10, 'esoto', 10, 'A', NULL, NULL, NULL, 3, 'asd'),
+(12, 'yrub', 16, 'A', NULL, NULL, NULL, 3, 'yrub564');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `ciudad`
+-- Indices de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
   ADD PRIMARY KEY (`id_ciudad`);
 
 --
--- Indexes for table `contenido_programatico`
+-- Indices de la tabla `contenido_programatico`
 --
 ALTER TABLE `contenido_programatico`
   ADD PRIMARY KEY (`id_contenido`);
 
 --
--- Indexes for table `escuela`
+-- Indices de la tabla `escuela`
 --
 ALTER TABLE `escuela`
   ADD PRIMARY KEY (`id_escuela`),
   ADD KEY `FK_facultad` (`id_facultad`);
 
 --
--- Indexes for table `facultad`
+-- Indices de la tabla `facultad`
 --
 ALTER TABLE `facultad`
   ADD PRIMARY KEY (`id_facultad`);
 
 --
--- Indexes for table `inscripcion`
+-- Indices de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
   ADD PRIMARY KEY (`id_inscripcion`),
   ADD KEY `id_persona` (`id_persona`),
   ADD KEY `id_tipo_estudio` (`id_tipo_estudio`),
-  ADD KEY `id_periodo` (`id_periodo`);
+  ADD KEY `id_periodo` (`id_periodo`),
+  ADD KEY `inscripcion_ibfk_4` (`id_facultad`),
+  ADD KEY `inscripcion_ibfk_5` (`id_escuela`);
 
 --
--- Indexes for table `inscripcion_seccion`
+-- Indices de la tabla `inscripcion_seccion`
 --
 ALTER TABLE `inscripcion_seccion`
   ADD PRIMARY KEY (`id_insc_secc`),
@@ -585,13 +628,13 @@ ALTER TABLE `inscripcion_seccion`
   ADD KEY `FK_USUARIO` (`id_usuario`);
 
 --
--- Indexes for table `modo_estudio`
+-- Indices de la tabla `modo_estudio`
 --
 ALTER TABLE `modo_estudio`
   ADD PRIMARY KEY (`id_modo`);
 
 --
--- Indexes for table `periodo`
+-- Indices de la tabla `periodo`
 --
 ALTER TABLE `periodo`
   ADD PRIMARY KEY (`id_periodo`),
@@ -599,51 +642,51 @@ ALTER TABLE `periodo`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `permisos`
+-- Indices de la tabla `permisos`
 --
 ALTER TABLE `permisos`
   ADD PRIMARY KEY (`id_permiso`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `persona`
+-- Indices de la tabla `persona`
 --
 ALTER TABLE `persona`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_ciudad` (`id_ciudad`);
 
 --
--- Indexes for table `planilla_inscripcion`
+-- Indices de la tabla `planilla_inscripcion`
 --
 ALTER TABLE `planilla_inscripcion`
   ADD PRIMARY KEY (`id_planilla`);
 
 --
--- Indexes for table `registro_academico`
+-- Indices de la tabla `registro_academico`
 --
 ALTER TABLE `registro_academico`
   ADD PRIMARY KEY (`id_registro`);
 
 --
--- Indexes for table `roles`
+-- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_rol`);
 
 --
--- Indexes for table `seccion`
+-- Indices de la tabla `seccion`
 --
 ALTER TABLE `seccion`
   ADD PRIMARY KEY (`id_seccion`);
 
 --
--- Indexes for table `tipo_estudio`
+-- Indices de la tabla `tipo_estudio`
 --
 ALTER TABLE `tipo_estudio`
   ADD PRIMARY KEY (`id_tipo_estudio`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`),
@@ -651,125 +694,127 @@ ALTER TABLE `usuario`
   ADD KEY `id_rol` (`id_rol`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `ciudad`
+-- AUTO_INCREMENT de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
   MODIFY `id_ciudad` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `contenido_programatico`
+-- AUTO_INCREMENT de la tabla `contenido_programatico`
 --
 ALTER TABLE `contenido_programatico`
-  MODIFY `id_contenido` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_contenido` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
--- AUTO_INCREMENT for table `escuela`
+-- AUTO_INCREMENT de la tabla `escuela`
 --
 ALTER TABLE `escuela`
   MODIFY `id_escuela` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `facultad`
+-- AUTO_INCREMENT de la tabla `facultad`
 --
 ALTER TABLE `facultad`
   MODIFY `id_facultad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `inscripcion`
+-- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `id_inscripcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_inscripcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `inscripcion_seccion`
+-- AUTO_INCREMENT de la tabla `inscripcion_seccion`
 --
 ALTER TABLE `inscripcion_seccion`
   MODIFY `id_insc_secc` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `modo_estudio`
+-- AUTO_INCREMENT de la tabla `modo_estudio`
 --
 ALTER TABLE `modo_estudio`
   MODIFY `id_modo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `periodo`
+-- AUTO_INCREMENT de la tabla `periodo`
 --
 ALTER TABLE `periodo`
   MODIFY `id_periodo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT for table `permisos`
+-- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
   MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `persona`
+-- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `planilla_inscripcion`
+-- AUTO_INCREMENT de la tabla `planilla_inscripcion`
 --
 ALTER TABLE `planilla_inscripcion`
   MODIFY `id_planilla` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `registro_academico`
+-- AUTO_INCREMENT de la tabla `registro_academico`
 --
 ALTER TABLE `registro_academico`
   MODIFY `id_registro` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id_rol` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `seccion`
+-- AUTO_INCREMENT de la tabla `seccion`
 --
 ALTER TABLE `seccion`
   MODIFY `id_seccion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tipo_estudio`
+-- AUTO_INCREMENT de la tabla `tipo_estudio`
 --
 ALTER TABLE `tipo_estudio`
   MODIFY `id_tipo_estudio` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `escuela`
+-- Filtros para la tabla `escuela`
 --
 ALTER TABLE `escuela`
   ADD CONSTRAINT `FK_facultad` FOREIGN KEY (`id_facultad`) REFERENCES `facultad` (`id_facultad`);
 
 --
--- Constraints for table `inscripcion`
+-- Filtros para la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
   ADD CONSTRAINT `inscripcion_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`),
   ADD CONSTRAINT `inscripcion_ibfk_2` FOREIGN KEY (`id_tipo_estudio`) REFERENCES `tipo_estudio` (`id_tipo_estudio`),
-  ADD CONSTRAINT `inscripcion_ibfk_3` FOREIGN KEY (`id_periodo`) REFERENCES `periodo` (`id_periodo`);
+  ADD CONSTRAINT `inscripcion_ibfk_3` FOREIGN KEY (`id_periodo`) REFERENCES `periodo` (`id_periodo`),
+  ADD CONSTRAINT `inscripcion_ibfk_4` FOREIGN KEY (`id_facultad`) REFERENCES `facultad` (`id_facultad`),
+  ADD CONSTRAINT `inscripcion_ibfk_5` FOREIGN KEY (`id_escuela`) REFERENCES `escuela` (`id_escuela`);
 
 --
--- Constraints for table `inscripcion_seccion`
+-- Filtros para la tabla `inscripcion_seccion`
 --
 ALTER TABLE `inscripcion_seccion`
   ADD CONSTRAINT `FK_CONTENIDO` FOREIGN KEY (`id_contenido`) REFERENCES `contenido_programatico` (`id_contenido`),
@@ -778,26 +823,26 @@ ALTER TABLE `inscripcion_seccion`
   ADD CONSTRAINT `FK_USUARIO` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
--- Constraints for table `periodo`
+-- Filtros para la tabla `periodo`
 --
 ALTER TABLE `periodo`
   ADD CONSTRAINT `periodo_ibfk_1` FOREIGN KEY (`id_tipo_estudio`) REFERENCES `tipo_estudio` (`id_tipo_estudio`),
   ADD CONSTRAINT `periodo_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
--- Constraints for table `permisos`
+-- Filtros para la tabla `permisos`
 --
 ALTER TABLE `permisos`
   ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
--- Constraints for table `persona`
+-- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
   ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`id_ciudad`) REFERENCES `ciudad` (`id_ciudad`);
 
 --
--- Constraints for table `usuario`
+-- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`),
