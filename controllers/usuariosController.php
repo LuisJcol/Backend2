@@ -81,6 +81,15 @@ class usuariosController{
       
     }
 
+    // Consulta Modificar Usuario
+
+    public function modificar(){
+        extract($_POST);
+        $user = new usuarios();
+        $user->userModify($usuario, $estado_usuario, $id_rol, $password);
+        require_once "views/usuarios/index.php";
+    }
+
     // Consulta para obtener usuarios registrados en estado activo
     public function verActivos(){
         $user = new usuarios();

@@ -117,6 +117,21 @@ class usuarios extends personas{
             }
 
     }
+
+    public function userModify($idusuario, $estado_usuario, $id_rol, $password){
+        $sql = $this->conexion->connect->prepare("UPDATE usuario SET id_rol = :idrol, contrasena = :pw, estado_usuario = :estado WHERE id_usuario = :idusuario");
+        $sql->bindParam(':idusuario', $idusuario);
+        $sql->bindParam(':estado',$estado_usuario);
+        $sql->bindParam(':idrol',$id_rol);
+        $sql->bindParam(':pw',$password);
+        $sql->execute();
+        if ($sql->errorCode() == 0) {
+            $this->users= $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $this->users;
+        }else{
+            print_r($sql->errorInfo());
+        }
+    }
 }
 
 
