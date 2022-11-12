@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2022 a las 05:15:41
+-- Tiempo de generación: 12-11-2022 a las 06:46:11
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -248,7 +248,94 @@ INSERT INTO `inscripcion` (`id_inscripcion`, `id_tipo_estudio`, `id_facultad`, `
 (9, 1, 1, 1, 1, 6, NULL, NULL, NULL, 1),
 (10, 1, 1, 1, 1, 7, NULL, NULL, NULL, 1),
 (11, 1, 1, 1, 1, 8, NULL, NULL, NULL, 1),
-(12, 1, 1, 1, 1, 9, NULL, NULL, NULL, 1);
+(12, 1, 1, 1, 1, 9, NULL, NULL, NULL, 1),
+(13, 1, 1, 1, 1, 10, NULL, NULL, NULL, 1),
+(14, 1, 1, 1, 1, 11, NULL, NULL, NULL, 1),
+(15, 1, 1, 1, 1, 12, NULL, NULL, NULL, 1),
+(16, 1, 1, 1, 1, 13, NULL, NULL, NULL, 1),
+(17, 1, 1, 1, 1, 14, NULL, NULL, NULL, 1),
+(18, 1, 1, 1, 1, 15, NULL, NULL, NULL, 1),
+(19, 1, 1, 1, 1, 16, NULL, NULL, NULL, 1),
+(20, 1, 5, 15, 13, 5, NULL, NULL, NULL, 1),
+(21, 1, 5, 15, 13, 6, NULL, NULL, NULL, 1),
+(22, 1, 5, 15, 13, 7, NULL, NULL, NULL, 1),
+(23, 1, 5, 15, 13, 8, NULL, NULL, NULL, 1),
+(24, 1, 5, 15, 13, 9, NULL, NULL, NULL, 1),
+(25, 1, 5, 15, 13, 10, NULL, NULL, NULL, 1),
+(26, 1, 5, 15, 13, 11, NULL, NULL, NULL, 1),
+(27, 1, 5, 15, 13, 12, NULL, NULL, NULL, 1),
+(28, 1, 5, 15, 28, 8, NULL, NULL, NULL, 1),
+(29, 1, 5, 15, 28, 9, NULL, NULL, NULL, 1),
+(30, 1, 5, 15, 28, 10, NULL, NULL, NULL, 1),
+(31, 1, 5, 15, 28, 11, NULL, NULL, NULL, 1),
+(32, 1, 5, 15, 28, 12, NULL, NULL, NULL, 1),
+(33, 1, 5, 15, 28, 13, NULL, NULL, NULL, 1),
+(34, 1, 5, 15, 28, 14, NULL, NULL, NULL, 1),
+(35, 1, 1, 15, 28, 15, NULL, NULL, NULL, 1),
+(36, 1, 5, 15, 28, 16, NULL, NULL, NULL, 1),
+(37, 1, 5, 15, 28, 17, NULL, NULL, NULL, 1),
+(38, 1, 5, 15, 28, 18, NULL, NULL, NULL, 1),
+(39, 1, 1, 1, 4, 16, NULL, NULL, NULL, 1),
+(40, 1, 1, 1, 4, 17, NULL, NULL, NULL, 1),
+(41, 1, 1, 1, 4, 18, NULL, NULL, NULL, 1),
+(42, 1, 1, 1, 4, 37, NULL, NULL, NULL, 1),
+(43, 1, 1, 1, 4, 38, NULL, NULL, NULL, 1),
+(44, 1, 1, 1, 4, 39, NULL, NULL, NULL, 1),
+(45, 1, 1, 1, 4, 39, NULL, NULL, NULL, 1),
+(46, 1, 1, 1, 4, 40, NULL, NULL, NULL, 1),
+(47, 1, 1, 1, 4, 41, NULL, NULL, NULL, 1),
+(48, 1, 1, 1, 4, 42, NULL, NULL, NULL, 1),
+(49, 1, 1, 3, 26, 38, NULL, NULL, NULL, 1),
+(50, 1, 1, 3, 26, 39, NULL, NULL, NULL, 1),
+(51, 1, 1, 3, 26, 40, NULL, NULL, NULL, 1),
+(52, 1, 1, 3, 26, 41, NULL, NULL, NULL, 1),
+(53, 1, 1, 3, 26, 42, NULL, NULL, NULL, 1),
+(54, 1, 2, 6, 19, 40, NULL, NULL, NULL, 1),
+(55, 1, 2, 6, 19, 41, NULL, NULL, NULL, 1),
+(56, 1, 2, 6, 19, 42, NULL, NULL, NULL, 1),
+(57, 1, 2, 8, 25, 39, NULL, NULL, NULL, 1),
+(58, 1, 2, 8, 25, 40, NULL, NULL, NULL, 1),
+(59, 1, 2, 8, 25, 41, NULL, NULL, NULL, 1),
+(60, 1, 2, 8, 25, 42, NULL, NULL, NULL, 1),
+(61, 1, 1, 2, 5, 18, NULL, NULL, NULL, 1),
+(62, 1, 1, 2, 5, 37, NULL, NULL, NULL, 1),
+(63, 1, 1, 2, 5, 38, NULL, NULL, NULL, 1),
+(64, 1, 1, 2, 5, 39, NULL, NULL, NULL, 1),
+(65, 1, 1, 2, 5, 40, NULL, NULL, NULL, 1),
+(66, 1, 1, 1, 5, 41, NULL, NULL, NULL, 1),
+(67, 1, 1, 2, 5, 42, NULL, NULL, NULL, 1),
+(68, 1, 3, 9, 12, 15, NULL, NULL, NULL, 1),
+(69, 1, 3, 9, 12, 16, NULL, NULL, NULL, 1),
+(70, 1, 3, 9, 12, 17, NULL, NULL, NULL, 1),
+(71, 1, 1, 9, 12, 18, NULL, NULL, NULL, 1),
+(72, 1, 3, 9, 12, 37, NULL, NULL, NULL, 1),
+(73, 1, 3, 9, 12, 38, NULL, NULL, NULL, 1),
+(74, 1, 3, 9, 12, 39, NULL, NULL, NULL, 1),
+(75, 1, 3, 9, 12, 40, NULL, NULL, NULL, 1),
+(76, 1, 3, 9, 12, 41, NULL, NULL, NULL, 1),
+(77, 1, 3, 9, 12, 42, NULL, NULL, NULL, 1),
+(78, 1, 3, 10, 27, 41, NULL, NULL, NULL, 1),
+(79, 1, 3, 10, 27, 42, NULL, NULL, NULL, 1),
+(80, 1, 3, 10, 18, 38, NULL, NULL, NULL, 1),
+(81, 1, 3, 10, 18, 39, NULL, NULL, NULL, 1),
+(82, 1, 3, 10, 18, 42, NULL, NULL, NULL, 1),
+(83, 1, 1, 1, 11, 41, NULL, NULL, NULL, 1),
+(84, 1, 1, 1, 11, 42, NULL, NULL, NULL, 1),
+(85, 1, 1, 4, 9, 38, NULL, NULL, NULL, 1),
+(86, 1, 1, 4, 9, 39, NULL, NULL, NULL, 1),
+(87, 1, 1, 4, 9, 40, NULL, NULL, NULL, 1),
+(88, 1, 1, 4, 9, 41, NULL, NULL, NULL, 1),
+(89, 1, 1, 4, 9, 42, NULL, NULL, NULL, 1),
+(90, 1, 5, 1, 20, 42, NULL, NULL, NULL, 1),
+(91, 1, 3, 11, 14, 39, NULL, NULL, NULL, 1),
+(92, 1, 3, 11, 14, 40, NULL, NULL, NULL, 1),
+(93, 1, 3, 11, 14, 42, NULL, NULL, NULL, 1),
+(94, 1, 3, 11, 16, 40, NULL, NULL, NULL, 1),
+(95, 1, 3, 11, 16, 41, NULL, NULL, NULL, 1),
+(96, 1, 3, 10, 6, 40, NULL, NULL, NULL, 1),
+(97, 1, 3, 10, 6, 40, NULL, NULL, NULL, 1),
+(98, 1, 3, 10, 6, 41, NULL, NULL, NULL, 1),
+(99, 1, 3, 10, 6, 42, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -336,7 +423,13 @@ INSERT INTO `periodo` (`id_periodo`, `periodo`, `fecha_inicio`, `fecha_fin`, `id
 (15, 'SEPTIEMBRE 2019 DICIEMBRE 2019', '2019-09-02 00:00:00', '2019-12-06 00:00:00', 4, 1, 'SEP-DIC 2019', 'A'),
 (16, 'ENERO 2020 ABRIL 2020', '2020-01-07 00:00:00', '2020-04-17 00:00:00', 4, 1, 'ENE-ABR 2020', 'A'),
 (17, 'MAYO 2020 AGO 2020', '2020-04-27 00:00:00', '2020-08-07 00:00:00', 4, 1, 'MAY-AGO 2020', 'A'),
-(18, 'SEPTIEMBRE 2020 DICIEMBRE 2020', '2020-08-31 00:00:00', '2020-12-11 00:00:00', 4, 1, 'SEP-DIC 2020', 'A');
+(18, 'SEPTIEMBRE 2020 DICIEMBRE 2020', '2020-08-31 00:00:00', '2020-12-11 00:00:00', 4, 1, 'SEP-DIC 2020', 'A'),
+(37, 'ENERO 2021 ABRIL 2021', '2021-01-11 08:44:33', '2021-04-30 08:44:33', 4, 1, 'ENE-ABR 2021', 'A'),
+(38, 'MAYO 2021 AGOSTO 2021', '2021-05-10 08:44:33', '2021-08-06 08:44:33', 4, 1, 'MAY-AGO 2021', 'A'),
+(39, 'AGOSTO 2021 DICIEMBRE 2021', '2021-08-30 08:48:42', '2021-12-03 08:48:42', 4, 1, 'AGO-DIC 2021', 'A'),
+(40, 'ENERO 2022 MAYO 2022', '2022-01-10 08:48:42', '2022-05-06 08:48:42', 4, 1, 'ENE-MAY 2022', 'A'),
+(41, 'MAYO 2022 AGOSTO 2022', '2022-05-16 08:48:42', '2022-08-26 08:48:42', 4, 1, 'MAY-AGO 2022', ''),
+(42, 'SEPTIEMBRE 2022 DICIEMBRE 2022', '2022-09-19 08:48:42', '2022-12-09 08:48:42', 4, 1, 'SEP-DIC 2022', 'A');
 
 -- --------------------------------------------------------
 
@@ -571,10 +664,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `usuario`, `id_persona`, `estado_usuario`, `ultima_fecha_inact`, `ultimo_acceso`, `correo_electronico`, `id_rol`, `contrasena`) VALUES
-(4, 'luiscolmenarez', 4, 'A', NULL, NULL, 'luiscolmenarez76@gmail.com', 1, 'luis1234'),
+(4, 'luiscolmenarez', 1, 'A', NULL, NULL, 'luiscolmenarez76@gmail.com', 1, 'luis1234'),
 (5, 'yjpp', 3, 'A', NULL, NULL, 'yjpp@gmail.com', 3, 'yjpp12345'),
 (6, 'jmedina', 2, 'I', NULL, NULL, 'juan.medina@urbe.edu', 1, 'urbe2021'),
-(10, 'esoto', 10, 'A', NULL, NULL, NULL, 3, 'asd'),
+(10, 'esoto', 10, 'I', NULL, NULL, NULL, 3, 'sa'),
 (12, 'yrub', 16, 'A', NULL, NULL, NULL, 3, 'yrub564');
 
 --
@@ -725,7 +818,7 @@ ALTER TABLE `facultad`
 -- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `id_inscripcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_inscripcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripcion_seccion`
@@ -743,7 +836,7 @@ ALTER TABLE `modo_estudio`
 -- AUTO_INCREMENT de la tabla `periodo`
 --
 ALTER TABLE `periodo`
-  MODIFY `id_periodo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_periodo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
